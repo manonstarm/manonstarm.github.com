@@ -4,19 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f4f0e8">
-  <title>Whimsical girl — Manon Spruth</title>
+  <title>Artist portfolio</title>
   <style>
     :root { color-scheme: light; background: #f4f0e8; color: #33313a; }
     * { box-sizing: border-box; }
     body { margin: 0; font-family: Georgia, 'Times New Roman', serif; }
     .page { width: min(100% - 48px, 1240px); margin: 0 auto; padding: 32px 0 40px; }
-    header { display: flex; justify-content: space-between; align-items: baseline; gap: 24px; border-bottom: 1px solid #d5cdbf; padding-bottom: 18px; }
-    .name { font-size: clamp(1.15rem, 2.3vw, 1.55rem); letter-spacing: -.035em; }
-    .eyebrow, .index, figcaption { font-family: Arial, Helvetica, sans-serif; font-size: .68rem; letter-spacing: .18em; text-transform: uppercase; }
-    .eyebrow { color: #72687b; }
-    .intro { display: flex; align-items: end; justify-content: space-between; gap: 20px; padding: 31px 0 24px; }
-    h1 { font-size: clamp(2.25rem, 5vw, 4.6rem); line-height: .98; font-weight: 400; letter-spacing: -.055em; margin: 0; }
-    .index { color: #806f88; white-space: nowrap; padding-bottom: 5px; }
     figure { margin: 0; }
     .artwork { position: relative; width: 100%; overflow: hidden; aspect-ratio: 2004 / 1479; background: #d8d5d1; box-shadow: 0 17px 43px #4134441a, 0 1px 4px #41344420; }
     .artwork img, .artwork svg { display: block; width: 100%; height: 100%; }
@@ -30,14 +23,8 @@
     @keyframes spin { to { transform: rotate(360deg); } }
     @keyframes orbit { to { transform: rotate(-360deg); } }
     @keyframes blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
-    figcaption { display: flex; justify-content: space-between; gap: 15px; color: #756d75; padding-top: 17px; line-height: 1.5; }
     @media (max-width: 600px) {
       .page { width: min(100% - 28px, 1240px); padding: 21px 0 28px; }
-      header { padding-bottom: 14px; }
-      .eyebrow { font-size: .59rem; letter-spacing: .11em; }
-      .intro { padding: 25px 0 18px; }
-      .index { display: none; }
-      figcaption { font-size: .57rem; letter-spacing: .11em; }
     }
     @media (prefers-reduced-motion: reduce) {
       .spiral, .orbit, .blink { animation: none; }
@@ -46,14 +33,6 @@
 </head>
 <body>
   <main class="page">
-    <header>
-      <span class="name">Manon Spruth</span>
-      <span class="eyebrow">Illustration / motion study</span>
-    </header>
-    <div class="intro">
-      <h1>Whimsical girl</h1>
-      <span class="index">Animated study · 01</span>
-    </div>
     <figure>
       <div class="artwork">
         <img src="whimsicle_girl.jpg" width="2004" height="1479" alt="Pencil portrait of a girl with curling hair and ram-like horns, surrounded by lilac and gold spirals and circles.">
@@ -81,7 +60,6 @@
           <circle class="blink late" data-motion="blink" cx="442" cy="484" r="15" fill="#a58aa6" fill-opacity=".9"/>
         </svg>
       </div>
-      <figcaption><span>Original drawing with animated overlays</span><span>Spirals · circles · still portrait</span></figcaption>
     </figure>
   </main>
 </body>
