@@ -4,13 +4,16 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f4f0e8">
-  <meta name="description" content="The art portfolio of Manon Spruth-Lebrun.">
-  <title>Manon Spruth-Lebrun — Artist Portfolio</title>
+  <meta name="description" content="The art portfolio of Manon Lebrun-Spruth.">
+  <title>Manon Lebrun-Spruth — Artist Portfolio</title>
   <style>
     :root { color-scheme: light; background: #f4f0e8; color: #33313a; }
     * { box-sizing: border-box; }
     body { margin: 0; font-family: Georgia, 'Times New Roman', serif; }
-    .site-header { background: #fff; }
+    .site-header {
+      background: #fff linear-gradient(to bottom, #ccc, #c5c5c5 55%, #aeaeae)
+        bottom / 100% 5px no-repeat;
+    }
     .header-inner, .page { width: min(100% - 64px, 1200px); margin-inline: auto; }
     .header-inner {
       display: flex; align-items: center; justify-content: space-between;
@@ -58,9 +61,8 @@
 <body>
   <header class="site-header">
     <div class="header-inner">
-      <h1 class="site-name">Manon Spruth-Lebrun</h1>
+      <h1 class="site-name">Manon Lebrun-Spruth</h1>
       <nav aria-label="Portfolio">
-        <a href="#works">Works</a>
         <a href="#about">About</a>
         <a href="#cv">CV</a>
         <a href="#contact">Contact</a>
@@ -83,7 +85,7 @@
     <div class="details">
       <section id="about" aria-labelledby="about-title">
         <h2 id="about-title">About</h2>
-        <p>Manon Spruth-Lebrun’s portfolio opens with a watercolour illustration brought to life through animation.</p>
+        <p>Manon Lebrun-Spruth’s portfolio opens with a watercolour illustration brought to life through animation.</p>
       </section>
       <section id="cv" aria-labelledby="cv-title">
         <h2 id="cv-title">CV</h2>

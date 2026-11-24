@@ -1,4 +1,4 @@
-"""Check that the portfolio's four navigation links lead to real content."""
+"""Check that the portfolio's navigation links lead to real content."""
 
 from html.parser import HTMLParser
 import unittest
@@ -40,12 +40,12 @@ class Portfolio(HTMLParser):
 class PortfolioTests(unittest.TestCase):
     def test_navigation_has_only_the_requested_labels(self):
         page = Portfolio((ROOT / "index.html").read_text(encoding="utf-8"))
-        self.assertEqual([label.strip() for _, label in page.links], ["Works", "About", "CV", "Contact"])
+        self.assertEqual([label.strip() for _, label in page.links], ["About", "CV", "Contact"])
 
-    def test_navigation_points_to_four_distinct_sections(self):
+    def test_navigation_points_to_three_distinct_sections(self):
         page = Portfolio((ROOT / "index.html").read_text(encoding="utf-8"))
         targets = {href for href, _ in page.links}
-        self.assertEqual(len(targets), 4)
+        self.assertEqual(len(targets), 3)
         for target in targets:
             with self.subTest(target=target):
                 self.assertEqual(page.targets.get(target), "section")
