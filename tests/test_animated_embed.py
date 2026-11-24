@@ -82,6 +82,16 @@ class AnimatedArtworkEmbedTests(unittest.TestCase):
     def test_old_jpg_is_not_displayed(self):
         self.assertNotIn("whimsicle_girl.jpg", [attrs.get("src") for attrs, _ in self.page.find("img")])
 
+    def test_artwork_has_a_named_portfolio_download_link(self):
+        links = [attrs for attrs, parents in self.page.find("a") if "figure" in parents]
+        self.assertEqual(len(links), 1)
+        link = links[0]
+        self.assertEqual(link.get("href"), "portfolio/manon_portfolio.pdf")
+        self.assertIn("download", link)
+        self.assertEqual(link.get("aria-label"), "Download portfolio (PDF)")
+        with (ROOT / link["href"]).open("rb") as pdf:
+            self.assertEqual(pdf.read(5), b"%PDF-")
+
     def test_svg_motion_overlay_is_removed(self):
         self.assertFalse(self.page.find("svg"), "animated asset must not be doubled by SVG")
         self.assertNotIn("data-motion", self.html)
