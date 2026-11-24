@@ -4,30 +4,96 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f4f0e8">
-  <title>Artist portfolio</title>
+  <meta name="description" content="The art portfolio of Manon Spruth-Lebrun.">
+  <title>Manon Spruth-Lebrun — Artist Portfolio</title>
   <style>
     :root { color-scheme: light; background: #f4f0e8; color: #33313a; }
     * { box-sizing: border-box; }
     body { margin: 0; font-family: Georgia, 'Times New Roman', serif; }
-    .page { width: min(100% - 48px, 1240px); margin: 0 auto; padding: 32px 0 40px; }
-    .artwork { margin: 0 auto; max-width: 1200px; width: 100%; box-shadow: 0 17px 43px #4134441a, 0 1px 4px #41344420; }
+    .site-header { background: #fff; }
+    .header-inner, .page { width: min(100% - 64px, 1200px); margin-inline: auto; }
+    .header-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 24px; padding: 38px 0; min-height: 136px;
+    }
+    .site-name {
+      margin: 0; font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-weight: 400; font-size: clamp(21px, 2.4vw, 34px);
+      letter-spacing: .12em; text-transform: uppercase;
+    }
+    nav { display: flex; flex-wrap: wrap; justify-content: center; column-gap: clamp(16px, 3vw, 42px); }
+    nav a {
+      display: inline-flex; align-items: center; min-height: 44px;
+      color: inherit; font: 16px 'Helvetica Neue', Arial, sans-serif;
+      text-decoration: none; text-underline-offset: .3em;
+    }
+    nav a:hover, nav a:focus-visible { text-decoration: underline; }
+    a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+    .page { padding: 32px 0 64px; }
+    .artwork { margin: 0; width: 100%; box-shadow: 0 17px 43px #4134441a, 0 1px 4px #41344420; }
     .artwork img { display: block; width: 100%; height: auto; }
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip-path: inset(50%); white-space: nowrap;
+    }
+    main section { scroll-margin-top: 24px; }
+    .details { max-width: 740px; margin: clamp(56px, 8vw, 112px) auto 0; }
+    .details section {
+      display: grid; grid-template-columns: 1fr 3fr; gap: 20px;
+      align-items: baseline; padding: 28px 0; border-top: 1px solid #d9d1c9;
+    }
+    .details h2 { margin: 0; font-weight: 400; font-size: 26px; }
+    .details p { margin: 0; line-height: 1.65; }
+    @media (max-width: 800px) {
+      .header-inner { flex-direction: column; justify-content: center; gap: 8px; padding: 24px 0 12px; min-height: 0; }
+      .site-name { text-align: center; }
+    }
     @media (max-width: 600px) {
-      .page { width: min(100% - 28px, 1240px); padding: 21px 0 28px; }
+      .header-inner, .page { width: calc(100% - 28px); }
+      .page { padding: 21px 0 32px; }
+      .details section { grid-template-columns: 1fr; gap: 8px; }
     }
   </style>
 </head>
 <body>
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="site-name">Manon Spruth-Lebrun</h1>
+      <nav aria-label="Portfolio">
+        <a href="#works">Works</a>
+        <a href="#about">About</a>
+        <a href="#cv">CV</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
   <main class="page">
-    <figure class="artwork">
-      <picture>
-        <source srcset="whimsical_girl_loop_v2_still.png" type="image/png" media="(prefers-reduced-motion: reduce)">
-        <source srcset="whimsical_girl_loop_v2.webp" type="image/webp">
-        <img src="whimsical_girl_loop_v2.gif"
-             alt="Watercolour illustration of a whimsical girl winking as her hair drifts in a breeze, with swirling spirals and blinking circles around her"
-             width="1200" height="885" loading="lazy" decoding="async">
-      </picture>
-    </figure>
+    <section id="works" aria-labelledby="works-title">
+      <h2 class="sr-only" id="works-title">Works</h2>
+      <figure class="artwork">
+        <picture>
+          <source srcset="whimsical_girl_loop_v2_still.png" type="image/png" media="(prefers-reduced-motion: reduce)">
+          <source srcset="whimsical_girl_loop_v2.webp" type="image/webp">
+          <img src="whimsical_girl_loop_v2.gif"
+               alt="Watercolour illustration of a whimsical girl winking as her hair drifts in a breeze, with swirling spirals and blinking circles around her"
+               width="1200" height="885" decoding="async">
+        </picture>
+      </figure>
+    </section>
+    <div class="details">
+      <section id="about" aria-labelledby="about-title">
+        <h2 id="about-title">About</h2>
+        <p>Manon Spruth-Lebrun’s portfolio opens with a watercolour illustration brought to life through animation.</p>
+      </section>
+      <section id="cv" aria-labelledby="cv-title">
+        <h2 id="cv-title">CV</h2>
+        <p>The CV is not yet published.</p>
+      </section>
+      <section id="contact" aria-labelledby="contact-title">
+        <h2 id="contact-title">Contact</h2>
+        <p>Contact details are not yet published.</p>
+      </section>
+    </div>
   </main>
 </body>
 </html>

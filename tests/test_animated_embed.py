@@ -39,7 +39,6 @@ class AnimatedArtworkEmbedTests(unittest.TestCase):
     def setUpClass(cls):
         cls.html = (ROOT / "index.html").read_text(encoding="utf-8")
         cls.page = Elements(cls.html)
-        cls.snippet = Elements((ROOT / "embedded.html").read_text(encoding="utf-8"))
 
     def test_one_figure_contains_webp_source_and_gif_fallback(self):
         figures = self.page.find("figure")
@@ -59,10 +58,13 @@ class AnimatedArtworkEmbedTests(unittest.TestCase):
         self.assertEqual(source.get("srcset"), "whimsical_girl_loop_v2.webp")
         self.assertEqual(image.get("src"), "whimsical_girl_loop_v2.gif")
 
-    def test_fallback_keeps_snippet_description_and_intrinsic_dimensions(self):
+    def test_fallback_keeps_description_and_intrinsic_dimensions(self):
         image = self.page.find("img")[0][0]
-        reference = self.snippet.find("img")[0][0]
-        self.assertEqual(image.get("alt"), reference["alt"])
+        self.assertEqual(
+            image.get("alt"),
+            "Watercolour illustration of a whimsical girl winking as her hair drifts "
+            "in a breeze, with swirling spirals and blinking circles around her",
+        )
         self.assertEqual((image.get("width"), image.get("height")), ("1200", "885"))
 
     def test_reduced_motion_selects_local_still_before_animated_sources(self):
