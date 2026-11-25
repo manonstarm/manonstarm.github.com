@@ -1,6 +1,6 @@
 # manonstarm.github.com
 
-Source for [manon.lebrun.design](https://manon.lebrun.design), the portfolio of Manon Lebrun-Spruth.
+Source for [manon.lebrun.design](https://manon.lebrun.design), the portfolio of Manon Lebrun.
 
 ## Portfolio
 
